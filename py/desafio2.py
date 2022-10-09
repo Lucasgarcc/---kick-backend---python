@@ -5,12 +5,14 @@
 #    print("Fim!" , x )
 
 # 2 numeros pares
+
 '''
 for x in range(1,200 ):
     if x % 2 == 0:
         print("pares:", x)
 '''
 # 4 numeros impares
+
 '''
 num = (int(input(" digite numero: ")))
 for x in range(1,num ):
@@ -19,7 +21,6 @@ for x in range(1,num ):
         print("pares:", x)
 '''
 # 5  media de notas
-
 
 for x in range(3):
     nota1 = int(input("nota1: " ))
