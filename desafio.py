@@ -26,3 +26,14 @@ print(lista)
 
 with open('lista.csv','w') as l:
         l.write(str(lista))
+        
+        
+        import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('lista.csv')
+
+df.plot(lista ='Lista', x = 'produtos', y = 'informações')
+
+plt.show()
+
