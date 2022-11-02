@@ -1,0 +1,51 @@
+''
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+HEADERS = {
+ 'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; MAARJS; rv:11.0) like Gecko',
+ 'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+ 'Accept-Encoding':'gzip,deflate,sdch',
+ 'Accept-Language':'pt-BR; q=0.9;en-US,en;q=0.8',
+ 'Connection':'Keep-alive',
+ 'Referer':'https://www.google.com.br',
+}
+
+res = requests.get('https://www.americanas.com.br/categoria/pc-gamer/perifericos-gamers/mouse-gamer?chave=pc_cat_ct1_4_acom_home_pc_gamer', headers=HEADERS)
+
+soup = BeautifulSoup(res.text, 'html.parser')
+
+nomes = soup.find_all(class_='product-info__Container-sc-1or28up-0 cdKgxb')
+precos = soup.find_all(class_='src__Text-sc-154pg0p-0 price__PromotionalPrice-sc-h6xgft-1 ctBJlj price-info__ListPriceWithMargin-sc-1xm1xzb-2 liXDNM')
+lista = []
+
+for nome in nomes:
+    lista.append(nome.text)
+#with open('lista.csv','w') as l:
+#    l.write(str(lista))
+
+for preco in precos:
+    lista.append(preco.text)
+print(lista)
+#with open('lista.csv','w') as l:
+#    l.write(str(lista))
+
+
+print(lista)
+
+import matplotlib.pyplot as plt
+import csv
+  
+prod = []
+valor = []
+  
+with open('lista.csv', 'r') as csv_arq:
+    lines = csv.reader(csv_arq, delimiter = ',')
+    for i in lines:
+        prod.append(len('Produtos'))
+        valor.append(len('Preços'))
+plt.pie(prod,labels = valor,autopct = '%.2f%%')
+plt.title('Dados de Lista de Produtos', fontsize = 20)
+plt.xlabel('Produtos')
+plt.ylabel('Preços')
+plt.show()
