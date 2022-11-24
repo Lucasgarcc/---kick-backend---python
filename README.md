@@ -5,5 +5,6 @@ pdf
 
 grafico
 
-![image](https://user-images.githubusercontent.com/99447073/203873054-4c34b7de-2955-4987-8a08-13317a1ab293.png)
+![image](https://user-images.githubusercontent.com/99447073/203873093-08cb5174-f51f-4d03-a84f-a84df9e5a14d.png)
+
 
